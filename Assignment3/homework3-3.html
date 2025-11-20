@@ -13,26 +13,26 @@ Purpose: MIS 3371 - Assignment1 patient registration form
     
 <body>
 <header>
-<table class="header table">
+<table class="header-table">
 <tr>
 <td class="header-left">
 <p>Today's Date: <span id="today"></span><br> <br> 
 Time: <span id="time"></span></p>
 </td>
-<table class="header-center">
-<div class="image">
+<td class = "header-center">
+	<div class = "image">
 <img src="https://media.istockphoto.com/id/1139549801/vector/stethoscope-heart-icon.jpg?s=612x612&w=0&k=20&c=qEJ7fFxWkok8j7FYYj4NwAlHSgqsw-azZz7c3IQJ4KI=" alt="clinic image" width="100">
 </div>
 </td>
 <td class="header-right">
 <p> 0020 west drive,Houston Texas,01010<br>
 Phone:010-100-0001</p>
-</td>
+<td>
 </tr>
 </table>
 </header>
 <hr>
-<form id="CreateAccount" action="hw2.thankyou.html" onsubmit="return validationeverything()">
+<form id="CreateAccount" action="hw3.thankyou.html" onsubmit="return validationeverything()">
 <div class="format">
 <table>
 <tr>
@@ -75,7 +75,7 @@ Phone:010-100-0001</p>
 <tr>
 <td  class="top-space">
 <label for="EM">Email Address:</label>
-<input type="text" id="EM" name="EM" maxlength="30" size="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2.20}$" onblur="validateEM()"/>
+<input type="text" id="EM" name="EM" maxlength="30" size="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$" onblur="validateEM()"/>
 <span class="error" id="EMnote"></span>
 </td>
 <td class="top-space left-space">
@@ -231,7 +231,7 @@ Phone:010-100-0001</p>
 <tr>
 <td colspan="4" class="forms-buttons">
 <center>
-<input type="submit" name="submit" id="submit" name="submit">
+<input type="submit" id="submit" name="submit">
 <input type="reset" name="reset">
 <input type="button" name="Review" id="Review" value="Review" onclick="ReviewInput()" />
 <input type="button" name="validation" id="valid" value="validation" onclick="validationeverything()">
