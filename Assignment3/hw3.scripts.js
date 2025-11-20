@@ -3,7 +3,7 @@ Name: Muhammad Saim Khan
 Date created: 09/21/2025
 Date last modified: 09/23/2025
 Version: 1
-Description: MIS 3371-Assignment 1
+Description: MIS 3371-Assignment 3
 */
 
 //dyanmic date js code
