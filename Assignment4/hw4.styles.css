@@ -1,0 +1,55 @@
+/* 
+Name: Muhammad Saim Khan
+Date created:09/22/2025
+Date last modified: 09/24/2025
+Version: 1
+Description: Assignment 1 - Patient registeration
+*/
+body {
+    background-color: orange;
+    font-family: Arial, san-serif;
+}
+
+
+header{
+ width: 100%;
+ background-color: rgb(18, 216, 227);
+}
+
+form {
+flex-grow:1;
+}
+h1, h2 {
+text-align: center;
+font-family:'Times New Roman', Times, serif;
+font-weight:bold;
+flex-grow:1;
+}
+main{
+text-align: center;
+font-family: 'Times New Roman', Times, serif;
+font-weight: normal;
+flex-grow:1;
+}
+.image {
+text-align:center;
+}
+.td1{
+text-align: left;
+font-family: 'Times New Roman', Times, serif;
+font-weight: normal;
+}
+th{
+    text-align:center;
+    font-family: 'Times New Roman', Times, serif;
+}
+label {
+ text-align:left;
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: normal;
+}
+input {
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
