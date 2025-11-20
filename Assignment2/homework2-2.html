@@ -32,7 +32,7 @@ Phone:010-100-0001</p>
 </table>
 </header>
 <hr>
-<form action="hw2.thankyou.html">
+<form id="CreateAccount" action="hw2.thankyou.html">
 <div class="format">
 <table>
 <tr>
@@ -98,7 +98,7 @@ Phone:010-100-0001</p>
 <label for="City"> City:</label>
 <input type="text" name="City" id="City" maxlength="30"required placeholder>
 <label for="State">State:</label>
-<select id="State" name:"State">
+<select id="State" name="State">
 <option selected disabled>Please Select One</option>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
@@ -169,11 +169,11 @@ Phone:010-100-0001</p>
 </tr>
 <tr>
 <td style="padding-top:10px;"><label for="history"> Select all applicable symptoms:</label>
-<input type="checkbox" id="option1" value="Fever"> Fever
-<input type="checkbox" id="option2" value="Sneeze"> Sneeze
-<input type="checkbox" id="option3" value="Nausea"> Nausea
-<input type="checkbox" id="option4" value="Headache"> Headache
-<input type="checkbox" id="option4" value="Others"> Others
+<input type="checkbox" name:"symptoms" id="option1" value="Fever"> Fever
+<input type="checkbox" name:"symptoms" id="option2" value="Sneeze"> Sneeze
+<input type="checkbox" name:"symptoms" id="option3" value="Nausea"> Nausea
+<input type="checkbox" name:"symptoms" id="option4" value="Headache"> Headache
+<input type="checkbox" name:"symptoms" id="option4" value="Others"> Others
 </td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@ Phone:010-100-0001</p>
 	<span id="ne3"></span> <br/>
 	<span id="ne4"></span> <br/>
 </div>
-<p id="showInput"></p>
+<p id="showinput"></p>
 </center>
 </td>
 </tr>
