@@ -90,7 +90,7 @@ function validateEM() {
         EMnote.innerHTML = "Invalid email address. Please enter valid email address.";
         return false;
     } else {
-        EMnote.innerHTML="Valid email address.";
+        EMnote.innerHTML= "";
         return true;
     }
 }
@@ -107,7 +107,7 @@ function validateCell() {
     if(Cell.length ===10){
         var cellformat= Cell.replace(/(\d{3})(\d{3})(\d{4})/,"$1-$2-$3");
         document.getElementById("Cell").value =cellformat;
-        note.innerHTML="Valid cell phone number";
+        note.innerHTML= "";
         return true;
     } else {
         note.innerHTML="Please enter your 10 digits cell phone number";
@@ -239,7 +239,6 @@ function ReviewInput(){
     Minit: "Middle Initial:",
     Lname: "Last Name:",
     DOB: "Date of Birth:",
-    SSN: "Social Security# : ",
     patisex: "Sex:",
     EM: "Email Address:",
     Cell: "Cell Phone Number:",
@@ -255,8 +254,10 @@ function ReviewInput(){
     Ins: "Insurance:",
     unid: "Username:",
     passw: "Password:",
-    Repassw: "Re-enter your Password:"
+    Repassw: "Re-entered password:"
    };
+
+   const hiddenFields = ["SSN", "passw", "Repassw"];
 
     for (let le of form.elements){
     if (["submit", "reset", "button"].includes(le.type)) continue;
@@ -434,3 +435,4 @@ function validateLname() {
         }
     }
 }
+
