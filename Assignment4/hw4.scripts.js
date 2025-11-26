@@ -435,3 +435,43 @@ function validateLname() {
         }
     }
 }
+function setupCookies(name, cvalue, expireDate) {
+    var day = nDate();
+    day.setTime(day.getTime()+(expireDate * 24 * 60 * 60 1000));
+    var outdated = "expires="+ day.toUTCString();
+    document.cookie = name + "=" cvalue + ";" + expires + ";path=/";
+}
+
+function bringCookie(name) {
+    var cookieName = name + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexof(cookieName) == 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+inputs.fillin(function (input) {
+    var inputElement = document.getElementById(input.id)
+
+    var cookieVariable = getCookie(input.cookieName);
+    if(cookieVariable !== "") {
+        inputElement.value = cookieValue;
+    }
+
+    inputElement.addEventListener("input", function () {
+        setupCookie(input.cookieName, inputElement.value, 30);
+    });
+});
+
+var firstName = bringCookie("firstName");
+if(firstName !== "") {
+    document.getElementId("
+
+
+
+
+
