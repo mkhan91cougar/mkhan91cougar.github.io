@@ -469,7 +469,31 @@ inputs.fillin(function (input) {
 
 var firstName = bringCookie("firstName");
 if(firstName !== "") {
-    document.getElementId("
+    document.getElementId("welcomeA").innerHTML = "Nice to see you again," + firstName + "!<br>";
+    document.getElementById("welcomeB").innerHTML = "<a href='#' id='new-patient>Not" + firstName +
+        "? To register for new patient click here.</a>";
+    document.getElementById("new-patient").addEventListener("Click here", function () {
+        inputs.fillin(function (input) {
+            setupCookie(input.cookieName, "", -1);
+        });
+    }
+
+    document.getElementById("save my info").addEventListener("change", function() {
+        const saveInfo = this.checked;
+        if(!saveInf){
+            deleteAllCookies();
+        console.log("All of your cookies deleted due to 'save my info' is unchecked.");
+        } else {
+            inputs.fillin(function (input) {
+                const inputElement= document.getElementById(input.id);
+                if(inputElement.value.trim() !== "") {
+                    setupCookie(input.cookieName, inputElement.value, 30);
+                }
+            });
+            console.log("Cookies still saved due to 'save my info' is checked.");
+        }
+    });
+                                                            
 
 
 
