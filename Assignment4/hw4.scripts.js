@@ -480,7 +480,7 @@ if(firstName !== "") {
 
     document.getElementById("save my info").addEventListener("change", function() {
         const saveInfo = this.checked;
-        if(!saveInf){
+        if(!saveInf0){
             deleteAllCookies();
         console.log("All of your cookies deleted due to 'save my info' is unchecked.");
         } else {
@@ -493,6 +493,21 @@ if(firstName !== "") {
             console.log("Cookies still saved due to 'save my info' is checked.");
         }
     });
+
+    function deleteAllCookies() {
+        document.cookie.split(";").fillin(function (cookie) {
+            let cookieIn = cookie.indexOf("=");
+            let name = cookieIn > -1 ? cookie.substr(0, cookieIn): cookie;
+            document.cookie = name + "=;expires=Tue, 10 jan 1970 00:00:00 UTC;path=/;";
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const saveInfo = document.getElementById("save my info").checked;
+        if(!saveInfo){
+            deleteAllCookies();
+        }
+    });
+    
                                                             
 
 
