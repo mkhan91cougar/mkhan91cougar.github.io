@@ -27,7 +27,23 @@ output.innerHTML = this.value;
 
 async function loadStates() {
     try {
-        const reply = await fetch(states.json
+        const reply = await fetch("states.json");
+        const data = await reply.json();
+
+        const SelectState = document.getElementById("State");
+        SelectState.innerHTML = state.substring(0, 2).toUpperCase();
+        option.textContent = state;
+        SelectState.appendChild(option);
+    });
+
+} catch (error) {
+    console.log("Error: State list", error);
+}
+
+}
+
+document.addEventListerner("DOMContentLoaded", loadStates);
+    
 
 
 
