@@ -457,7 +457,7 @@ function validateLname() {
     }
 }
 function setupCookies(name, cvalue, expireDate) {
-    var day = nDate();
+    var day = new Date();
     day.setTime(day.getTime()+(expireDate * 24 * 60 * 60 1000));
     var outdated = "expires="+ day.toUTCString();
     document.cookie = name + "=" cvalue + ";" + expires + ";path=/";
@@ -466,9 +466,10 @@ function setupCookies(name, cvalue, expireDate) {
 function bringCookie(name) {
     var cookieName = name + "=";
     var cookies = document.cookie.split(';');
+    
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].trim();
-        if (cookie.indexof(cookieName) == 0) {
+        if (cookie.indexof(cookieName) === 0) {
             return cookie.substring(cookieName.length, cookie.length);
         }
     }
