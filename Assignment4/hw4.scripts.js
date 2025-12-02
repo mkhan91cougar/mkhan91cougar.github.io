@@ -25,6 +25,11 @@ slider.oninput = function(){
 output.innerHTML = this.value;
 };
 
+async function loadStates() {
+    try {
+        const reply = await fetch(states.json
+
+
 
 function validateDOB() {
     DOB= document.getElementById("DOB");
