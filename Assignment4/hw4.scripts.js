@@ -456,6 +456,8 @@ function validateLname() {
         }
     }
 }
+
+const IsFields 
 function setupCookies(name, cvalue, expireDate) {
     var day = new Date();
     day.setTime(day.getTime()+(expireDate * 24 * 60 * 60 1000));
