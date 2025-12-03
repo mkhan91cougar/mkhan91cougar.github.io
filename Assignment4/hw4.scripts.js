@@ -25,27 +25,22 @@ slider.oninput = function(){
 output.innerHTML = this.value;
 };
 
-async function loadStates() {
+document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const reply = await fetch("states.json");
-        const data = await reply.json();
-
-        const SelectState = document.getElementById("State");
-        SelectState.innerHTML = state.substring(0, 2).toUpperCase();
-        option.textContent = state;
-        SelectState.appendChild(option);
-    });
-
-} catch (error) {
-    console.log("Error: State list", error);
-}
-
-}
-
-document.addEventListerner("DOMContentLoaded", loadStates);
-    
-
-
+        const response = await fetch("states.json");
+        const data = await response.json();
+        const stateSelect = document.getElementById("State");
+        stateSelect.innerHTML = "<option disabled selected> select one option </option>";
+        data.states.forEach(st => {
+            let opt = document.createElement("option");
+            opt.value = st;
+            opt.textContent = st;
+            stateSelect.appendChild(opt);
+        });
+    }catch (err) {
+        console.log("Error: Loading states.", err);
+    }
+});
 
 function validateDOB() {
     DOB= document.getElementById("DOB");
@@ -457,13 +452,13 @@ function validateLname() {
     }
 }
 
-const localFields = {
+const localFields = [
     "Fname", "Minit", "Lname", "DOB", "EM", "Cell", "address1", "address2", "City", "Zip", "notes", "range", 
     "unid"
 ];
 
-localFields.fillin(id => {
-    let el = document.get.ElementById(id);
+localFields.forEach(id => {
+    let el = document.getElementById(id);
     if (el) {
         el.addEventListener("input", () => {
             localStorage.setItem(id, el.value);
@@ -472,7 +467,7 @@ localFields.fillin(id => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    localFields.fillin(id => {
+    localFields.forEach(id => {
         let saved = localStorage.getItem(id);
         if(saved !== null) {
             let el = document.getElementById(id);
@@ -481,12 +476,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const IsFields 
-function setupCookies(name, cvalue, expireDate) {
+function setupCookie(name, cvalue, expireDate) {
     var day = new Date();
-    day.setTime(day.getTime()+(expireDate * 24 * 60 * 60 1000));
-    var outdated = "expires="+ day.toUTCString();
-    document.cookie = name + "=" cvalue + ";" + expires + ";path=/";
+    day.setTime(day.getTime() + (expireDate * 24 * 60 * 60 * 1000));
+    var expires = "expires="+ day.toUTCString();
+    document.cookie = name + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function bringCookie(name) {
@@ -495,44 +489,31 @@ function bringCookie(name) {
     
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i].trim();
-        if (cookie.indexof(cookieName) === 0) {
+        if (cookie.indexOf(cookieName) === 0) {
             return cookie.substring(cookieName.length, cookie.length);
         }
     }
     return "";
 }
 
-inputs.fillin(function (input) {
-    var inputElement = document.getElementById(input.id)
-
-    var cookieVariable = getCookie(input.cookieName);
-    if(cookieVariable !== "") {
-        inputElement.value = cookieValue;
-    }
-
-    inputElement.addEventListener("input", function () {
-        setupCookie(input.cookieName, inputElement.value, 30);
-    });
-});
-
 var firstName = bringCookie("firstName");
 if(firstName !== "") {
-    document.getElementId("welcomeA").innerHTML = "Nice to see you again," + firstName + "!<br>";
-    document.getElementById("welcomeB").innerHTML = "<a href='#' id='new-patient>Not" + firstName +
+    document.getElementById("welcomeA").innerHTML = "Nice to see you again," + firstName + "!<br>";
+    document.getElementById("welcomeB").innerHTML = "<a href='#' id='new-patient'>Not" + firstName +
         "? To register for new patient click here.</a>";
-    document.getElementById("new-patient").addEventListener("Click here", function () {
-        inputs.fillin(function (input) {
+    document.getElementById("new-patient").addEventListener("click", function () {
+ {
             setupCookie(input.cookieName, "", -1);
         });
     }
 
-    document.getElementById("save my info").addEventListener("change", function() {
+    document.getElementById("save_my_info").addEventListener("change", function() {
         const saveInfo = this.checked;
-        if(!saveInf0){
+        if(!saveInfo){
             deleteAllCookies();
         console.log("All of your cookies deleted due to 'save my info' is unchecked.");
         } else {
-            inputs.fillin(function (input) {
+            inputs.forEach(function (input) {
                 const inputElement= document.getElementById(input.id);
                 if(inputElement.value.trim() !== "") {
                     setupCookie(input.cookieName, inputElement.value, 30);
@@ -543,17 +524,18 @@ if(firstName !== "") {
     });
 
     function deleteAllCookies() {
-        document.cookie.split(";").fillin(function (cookie) {
+        document.cookie.split(";").forEach(function (cookie) {
             let cookieIn = cookie.indexOf("=");
             let name = cookieIn > -1 ? cookie.substr(0, cookieIn): cookie;
             document.cookie = name + "=;expires=Tue, 10 jan 1970 00:00:00 UTC;path=/;";
         });
     }
     document.addEventListener("DOMContentLoaded", function() {
-        const saveInfo = document.getElementById("save my info").checked;
+        const saveInfo = document.getElementById("save_my_info").checked;
         if(!saveInfo){
             deleteAllCookies();
         }
+    }
     });
     
                                                             
