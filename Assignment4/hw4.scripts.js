@@ -457,6 +457,30 @@ function validateLname() {
     }
 }
 
+const localFields = {
+    "Fname", "Minit", "Lname", "DOB", "EM", "Cell", "address1", "address2", "City", "Zip", "notes", "range", 
+    "unid"
+];
+
+localFields.fillin(id => {
+    let el = document.get.ElementById(id);
+    if (el) {
+        el.addEventListener("input", () => {
+            localStorage.setItem(id, el.value);
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    localFields.fillin(id => {
+        let saved = localStorage.getItem(id);
+        if(saved !== null) {
+            let el = document.getElementById(id);
+            if (el) el.value = saved;
+        }
+    });
+});
+
 const IsFields 
 function setupCookies(name, cvalue, expireDate) {
     var day = new Date();
