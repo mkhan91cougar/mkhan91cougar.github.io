@@ -499,13 +499,12 @@ function bringCookie(name) {
 var firstName = bringCookie("firstName");
 if(firstName !== "") {
     document.getElementById("welcomeA").innerHTML = "Nice to see you again," + firstName + "!<br>";
-    document.getElementById("welcomeB").innerHTML = "<a href='#' id='new-patient'>Not" + firstName +
+    document.getElementById("welcomeB").innerHTML = "<a href='#' id='new-patient'>Not " + firstName +
         "? To register for new patient click here.</a>";
     document.getElementById("new-patient").addEventListener("click", function () {
- {
-            setupCookie(input.cookieName, "", -1);
+    setupCookie("firstName", "", -1);
         });
-    }
+}
 
     document.getElementById("save_my_info").addEventListener("change", function() {
         const saveInfo = this.checked;
@@ -513,12 +512,7 @@ if(firstName !== "") {
             deleteAllCookies();
         console.log("All of your cookies deleted due to 'save my info' is unchecked.");
         } else {
-            inputs.forEach(function (input) {
-                const inputElement= document.getElementById(input.id);
-                if(inputElement.value.trim() !== "") {
-                    setupCookie(input.cookieName, inputElement.value, 30);
-                }
-            });
+          
             console.log("Cookies still saved due to 'save my info' is checked.");
         }
     });
@@ -530,13 +524,6 @@ if(firstName !== "") {
             document.cookie = name + "=;expires=Tue, 10 jan 1970 00:00:00 UTC;path=/;";
         });
     }
-    document.addEventListener("DOMContentLoaded", function() {
-        const saveInfo = document.getElementById("save_my_info").checked;
-        if(!saveInfo){
-            deleteAllCookies();
-        }
-    }
-    });
     
                                                             
 
