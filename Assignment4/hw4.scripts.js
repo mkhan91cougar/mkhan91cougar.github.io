@@ -315,7 +315,8 @@ function ReviewInput(){
 
     if (le.tagName === "SELECT") {
         output += `<tr><td align= 'right'>${labeltext}</td><td>${le.options[le.selectedIndex].text}</td></tr>`;
-    } else if (le.value) {
+    } else if (le.value) || hiddenFields.includes(le.name)) {
+        
         let valueToShow = le.value;
 
         
