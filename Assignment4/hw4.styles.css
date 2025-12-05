@@ -55,10 +55,20 @@ label {
  font-weight: normal;
 }
 input {
-    text-align: right;
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="number"],
+    input[type="email"],
+    input[type="range"] {
+         text-align: right;
     font-family: 'Times New Roman', Times, serif;
     font-weight: normal;
 }
+
+    td {
+        vertical-align: middle;
+    }
 
 #welcomeA, #welcomeB {
 display: block;
@@ -97,6 +107,7 @@ font-family: 'TImes New Roman', Times, serif;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     overflow:hidden;
+    z-index: 1000;
 }
 .iframe-container iframe {
     width: 100%;
