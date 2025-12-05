@@ -12,3 +12,8 @@
     "West Virginia", "Wisconsin", "Wyoming"
 ]
 } 
+
+{
+    "conditions": [
+        "Fever",
+        "Headache
