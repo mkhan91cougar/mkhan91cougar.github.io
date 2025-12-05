@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             box.name = "conditions";
 
             let label = document.createElement("label");
-            label.textContent = item;
+            label.textContent = " " + item;
 
             area.appendChild(box);
             area.appendChild(label);
@@ -394,8 +394,12 @@ if(!validateRepassw()){
 
 if(valid) {
 document.getElementById("submit").disabled = false;
+    const fname = document.getElementById("Fname").value.trim();
+    if(document.getElementById("save_my_info").checked) {
+        setupCookie("firstName", fname, 2);
+    }
 return true;
-} else {
+} 
   displayWarning ();
   return false;
 }
@@ -495,7 +499,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let saved = localStorage.getItem(id);
         if(saved !== null) {
             let el = document.getElementById(id);
-            if (el) el.value = saved;
+            if (el) {
+                el.value = saved;
+                if(id === "range") {
+                    document.getElementById("range-slider).innerHTML = saved;
+                                            }
+            }
+            
         }
     });
 });
