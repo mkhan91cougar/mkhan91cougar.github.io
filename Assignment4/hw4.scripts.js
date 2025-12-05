@@ -322,7 +322,7 @@ function ReviewInput(){
         if(hiddenFields.includes(le.name)) {
             valueToShow = "************";
         }
-        output += `<tr><td align= 'right'>${labeltext}</td><td>${le.value}</td></tr>`;
+        output += `<tr><td align= 'right'>${labeltext}</td><td>${valueToShow}</td></tr>`;
     }
     }
     output += "</table>";
