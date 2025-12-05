@@ -315,15 +315,9 @@ function ReviewInput(){
 
     if (le.tagName === "SELECT") {
         output += `<tr><td align= 'right'>${labeltext}</td><td>${le.options[le.selectedIndex].text}</td></tr>`;
-    } else if (le.value) || hiddenFields.includes(le.name)) {
-        
-        let valueToShow = le.value;
-
-        
-        if(hiddenFields.includes(le.name)) {
-            valueToShow = "************";
+    } else if (le.value)
         }
-        output += `<tr><td align= 'right'>${labeltext}</td><td>${valueToShow}</td></tr>`;
+        output += `<tr><td align= 'right'>${labeltext}</td><td>${le.value}</td></tr>`;
     }
     }
     output += "</table>";
