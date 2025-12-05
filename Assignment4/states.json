@@ -16,4 +16,12 @@
 {
     "conditions": [
         "Fever",
-        "Headache
+        "Headache",
+        "Stomach Pain",
+        "Allergies",
+        "Cough",
+        "shortness of Breath",
+        "Fatigue"
+    ]
+}
+        
