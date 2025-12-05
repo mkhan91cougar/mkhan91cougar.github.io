@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const response = await fetch("conditions-area");
+        const response = await fetch("conditions.json");
         const data = await response.json();
-        const area = document.getElementById("Conditions-area");
+        const area = document.getElementById("conditions-area");
 
         data.conditions.forEach(item => {
             let box = document.createElement("input");
@@ -57,14 +57,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             let label = document.createElement("label");
             label.textContent = item;
 
-            area.appendchild(box);
+            area.appendChild(box);
             area.appendChild(label);
             area.appendChild(document.createElement("br"));
         });
     } catch (err) {
         console.log("Error found", err);
     }
-}):
+});
 
 function validateDOB() {
     DOB= document.getElementById("DOB");
