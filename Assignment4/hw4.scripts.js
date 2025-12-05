@@ -301,6 +301,7 @@ function ReviewInput(){
 
     for (let le of form.elements){
     if (["submit", "reset", "button"].includes(le.type)) continue;
+        if (hiddenFields.includes(le.name)) continue;
     if (le.type === "checkbox" && !le.checked) continue;
 
     if(le.type === "radio") {
