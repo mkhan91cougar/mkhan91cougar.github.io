@@ -314,18 +314,18 @@ function ReviewInput(){
     let labeltext=fieldNames[le.name]||le.name;
 
     if (le.tagName === "SELECT") {
-        let labeltext = fieldNames[le.name] || le.name;
         output += `<tr><td align= 'right'>${labeltext}</td><td>${le.options[le.selectedIndex].text}</td></tr>`;
-        continue;
-        
-    } if (le.value.trim)() !== "") {
-        let labeltext = fieldNames[lename] || le.name;
+    } else if (le.value) {
         output += `<tr><td align= 'right'>${labeltext}</td><td>${le.value}</td></tr>`;
     }
     }
     output += "</table>";
     document.getElementById("showinput").innerHTML = output;
  }
+
+ function DeleteReview() {
+    document.getElementById("showinput").innerHTML="";
+}
 
  function DeleteReview() {
     document.getElementById("showinput").innerHTML="";
