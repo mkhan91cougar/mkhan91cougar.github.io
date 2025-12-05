@@ -399,8 +399,8 @@ document.getElementById("submit").disabled = false;
         setupCookie("firstName", fname, 2);
     }
 return true;
-} 
-  displayWarning ();
+} else {
+  displayWarning();
   return false;
 }
 }
@@ -501,9 +501,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let el = document.getElementById(id);
             if (el) {
                 el.value = saved;
+                
                 if(id === "range") {
-                    document.getElementById("range-slider).innerHTML = saved;
-                                            }
+                    document.getElementById("range-slider").innerHTML = saved; 
+                }
             }
             
         }
