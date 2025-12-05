@@ -314,8 +314,12 @@ function ReviewInput(){
     let labeltext=fieldNames[le.name]||le.name;
 
     if (le.tagName === "SELECT") {
+        let labeltext = fieldNames[le.name] || le.name;
         output += `<tr><td align= 'right'>${labeltext}</td><td>${le.options[le.selectedIndex].text}</td></tr>`;
-    } else if (le.value)
+        continue;
+        
+    } if (le.value.trim)() !== "") {
+        let labeltext = fieldNames[lename] || le.name;
         output += `<tr><td align= 'right'>${labeltext}</td><td>${le.value}</td></tr>`;
     }
     }
