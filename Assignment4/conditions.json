@@ -1,0 +1,11 @@
+{
+    "conditions": [
+        "Fever",
+        "Headache",
+        "Stomach Pain",
+        "Allergies",
+        "Cough",
+        "shortness of Breath",
+        "Fatigue"
+    ]
+}
