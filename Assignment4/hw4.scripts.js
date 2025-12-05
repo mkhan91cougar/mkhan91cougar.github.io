@@ -42,6 +42,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const response = await fetch("conditions-area");
+        const data = await response.json();
+        const area = document.getElementById("Conditions-area");
+
+        data.conditions.forEach(item => {
+            let box = document.createElement("input");
+            box.type = "checkbox";
+            box.value = item;
+            box.name = "conditions";
+
+            let label = document.createElement("label");
+            label.textContent = item;
+
+            area.appendchild(box);
+            area.appendChild(label);
+            area.appendChild(document.createElement("br"));
+        });
+    } catch (err) {
+        console.log("Error found", err);
+    }
+}):
+
 function validateDOB() {
     DOB= document.getElementById("DOB");
     let date= new Date(DOB.value);
